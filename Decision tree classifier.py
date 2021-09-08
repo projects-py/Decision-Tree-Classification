@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
 
 #importing libraries
 import pandas as pd
@@ -14,26 +9,22 @@ from sklearn import metrics
 
 
 #loading data
-
 dataset = pd.read_csv("iphone_purchase_records.csv")
 X = dataset.iloc[:,:-1].values
 y = dataset.iloc[:, 3].values
 
-#converting gender to a number
 
+#converting gender to a number
 labelEncoder_gender =  LabelEncoder()
 X[:,0] = labelEncoder_gender.fit_transform(X[:,0])
 
-
-
 X = np.vstack(X[:, :]).astype(np.float)
 
-#Splitting Data
 
+#Splitting Data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
 
 #Fit the classifier
-
 classifier = DecisionTreeClassifier(criterion = "entropy", random_state=0)
 classifier.fit(X_train, y_train)
 
