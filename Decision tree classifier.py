@@ -9,7 +9,7 @@ from sklearn import metrics
 
 
 #loading data
-dataset = pd.read_csv("iphone_purchase_records.csv")
+dataset = pd.read_csv("Documents\iphone_purchase_records.csv")
 X = dataset.iloc[:,:-1].values
 y = dataset.iloc[:, 3].values
 
@@ -22,7 +22,7 @@ X = np.vstack(X[:, :]).astype(np.float)
 
 
 #Splitting Data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=2)
 
 #Fit the classifier
 classifier = DecisionTreeClassifier(criterion = "entropy", random_state=0)
